@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+        <mapper namespace="com.li.mapper.userMapper">
+<!--        查全部-->
+        <select id="selectStudent" resultType="com.li.pojo.Student">
+            select * from students
+        </select>
+<!--    插入学生-->
+        <insert id="insertStudent" parameterType="com.li.pojo.Student">
+        INSERT INTO students (id,name,score,age,gender) VALUES (#{id},#{name},#{score},#{age},#{gender})
+        </insert>
+<!--    删除学生-->
+        <delete id="deleteStudent" parameterType="int">
+        DELETE FROM students WHERE id = #{id}
+        </delete>
+<!--   更新学生-->
+        <update id="updateStudent" parameterType="com.li.pojo.Student">
+        UPDATE students
+        SET id = #{id}, name = #{name},score= #{score}, age = #{age}, gender = #{gender}
+        WHERE id = #{id}
+        </update>
+
+
+
+</mapper>
